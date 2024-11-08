@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private GameObject[] items;// all the items in the inventory
+   //[SerializeField] private GameObject[] items;// all the items in the inventory
 
    [SerializeField] private GameObject itemToActivate; //items in inventory that need to become activated
    [SerializeField] private GameObject itemToDeactivate; //items in the game that need to be deactivated
