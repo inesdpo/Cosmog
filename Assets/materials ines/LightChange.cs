@@ -4,6 +4,27 @@ using UnityEngine;
 
 public class LightChange : MonoBehaviour
 {
-    [SerializeField] private string initialState ;
-    [SerializeField] private string secondaryState;
+    [SerializeField] private float secondaryState;
+    [SerializeField] private GameObject villain;
+
+    Light myLight;
+
+    void Start()
+    {
+        myLight = GetComponent<Light>();
+    }
+
+    void Update()
+    {
+        if (!villain.activeInHierarchy)
+        {
+            ChangeState();
+        }
+        
+    }
+
+    public void ChangeState()
+    {
+        myLight.intensity = secondaryState;
+    }
 }
