@@ -15,7 +15,10 @@ namespace Script.Triggers
         // Start is called before the first frame update
         void Start()
         {
-            animatorTarget = animator.GetComponent<PlayableDirector>();
+            if(animator)
+            {
+                animatorTarget = animator.GetComponent<PlayableDirector>();
+            }
         }
 
         protected override void OnEnterAction(Collider other)

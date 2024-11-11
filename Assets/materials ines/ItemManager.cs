@@ -6,6 +6,7 @@ public class ItemManager : MonoBehaviour
 {
     [SerializeField] private List<Item> items;
     [SerializeField] private List<InventoryItem> inventoryItems;
+    [SerializeField] private GameObject objectToActivate;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +29,8 @@ public class ItemManager : MonoBehaviour
             inventoryItems.Add(inventoryItem);
         }
 
-
+        Cursor.lockState = CursorLockMode.Locked;  
+        Cursor.visible = true;
     }
 
     // Update is called once per frame
@@ -62,6 +64,7 @@ public class ItemManager : MonoBehaviour
             {
                 inventoryItem.ToggleInventoryItem(true);
                 item.gameObject.SetActive(false);
+                objectToActivate.SetActive(true);
                 break;
             }
         }

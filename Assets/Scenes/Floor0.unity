@@ -573,7 +573,7 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4459864851310106429, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2057065542}
+      addedObject: {fileID: 1018102266}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       insertIndex: -1
@@ -817,7 +817,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4eca7568069efff448304bef13ccfb28, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.99
+      value: 1.216
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4eca7568069efff448304bef13ccfb28, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1524,7 +1524,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0.11, y: 0, z: 0}
-  m_LocalScale: {x: 0.06, y: 0.06, z: 0.06}
+  m_LocalScale: {x: 0.06, y: 0.06, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2057065542}
@@ -1656,6 +1656,56 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.16, y: 0.17, z: 0.09}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1018102265
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1018102266}
+  - component: {fileID: 1018102267}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1018102266
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018102265}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2057065542}
+  m_Father: {fileID: 294336545}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1018102267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018102265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2faf6c5f244e8014ba16a4f804b21e98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 1803563767}
+  inventoryItems:
+  - {fileID: 1088005465}
+  objectToActivate: {fileID: 2057065541}
 --- !u!1 &1032904970
 GameObject:
   m_ObjectHideFlags: 0
@@ -1790,9 +1840,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1088005464}
+  - component: {fileID: 1088005465}
   m_Layer: 0
   m_Name: Restaurant
-  m_TagString: Untagged
+  m_TagString: inventoryItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1806,13 +1857,27 @@ Transform:
   m_GameObject: {fileID: 1088005463}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.02, y: -0.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1128967909}
   m_Father: {fileID: 2057065542}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1088005465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088005463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbca3d09df90b174c97f6861250ffe4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Restaurant
+  inventoryItemGameObject: {fileID: 1128967908}
 --- !u!1 &1128967908
 GameObject:
   m_ObjectHideFlags: 0
@@ -1825,14 +1890,13 @@ GameObject:
   - component: {fileID: 1128967912}
   - component: {fileID: 1128967911}
   - component: {fileID: 1128967910}
-  - component: {fileID: 1128967913}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1128967909
 Transform:
   m_ObjectHideFlags: 0
@@ -1920,20 +1984,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1128967908}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1128967913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1128967908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbca3d09df90b174c97f6861250ffe4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: Restaurant
-  inventoryItemGameObject: {fileID: 1128967908}
 --- !u!1 &1149029221
 GameObject:
   m_ObjectHideFlags: 0
@@ -3620,7 +3670,7 @@ GameObject:
   - component: {fileID: 1803563767}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3706,8 +3756,8 @@ Transform:
   m_GameObject: {fileID: 1803563762}
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000081460335, y: 0.0000000754979, z: 0.0000000135276546, w: 1}
-  m_LocalPosition: {x: 0.0040679653, y: -0.01835612, z: 0.021518722}
-  m_LocalScale: {x: 0.0035300173, y: 0.0035300173, z: 0.0035300173}
+  m_LocalPosition: {x: 0.004100183, y: -0.013900012, z: 0.02150014}
+  m_LocalScale: {x: 0.003530017, y: 0.003530017, z: 0.003530017}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6910799042271375618}
@@ -3855,14 +3905,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2057065542}
-  - component: {fileID: 2057065543}
   m_Layer: 0
   m_Name: Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2057065542
 Transform:
   m_ObjectHideFlags: 0
@@ -3871,31 +3920,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2057065541}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.341, y: -0.119, z: 0.362}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: -0.25, y: -0.11899996, z: 0.362}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 912236720}
   - {fileID: 1088005464}
-  m_Father: {fileID: 294336545}
+  m_Father: {fileID: 1018102266}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &2057065543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2057065541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2faf6c5f244e8014ba16a4f804b21e98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  items:
-  - {fileID: 1803563767}
-  inventoryItems:
-  - {fileID: 1128967913}
 --- !u!1 &2064334478
 GameObject:
   m_ObjectHideFlags: 0
@@ -19985,7 +20018,7 @@ Transform:
   m_GameObject: {fileID: 3996001955839787228}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0000000135276546, y: 1, z: -0.000000081460335, w: 0.0000000754979}
-  m_LocalPosition: {x: 20.275078, y: 7.8499994, z: -67.45}
+  m_LocalPosition: {x: 20.275078, y: 7.8499994, z: -67.398}
   m_LocalScale: {x: 18.885647, y: 18.885647, z: 18.885647}
   m_ConstrainProportionsScale: 0
   m_Children:
