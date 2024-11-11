@@ -9,7 +9,7 @@ namespace Script.Triggers
     public class SquenceTrigger : TriggerBehaviour
     {
         public PlayableDirector playableDirector; // Reference to the PlayableDirector component
-        public GameObject objectToDeactivate;
+       [SerializeField] private GameObject objectToDeactivate;
         public bool stopOnExit = false;            // Option to stop the timeline when the player exits the trigger
 
 
@@ -28,7 +28,8 @@ namespace Script.Triggers
             // Ensure the objectToDeactivate is set to this GameObject if not assigned
             if (objectToDeactivate == null)
             {
-                objectToDeactivate = gameObject;
+                //objectToDeactivate = gameObject;
+                Debug.Log("No Object Assigned");
             }
         }
         protected override void OnEnterAction(Collider other)

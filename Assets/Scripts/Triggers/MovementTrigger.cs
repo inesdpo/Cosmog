@@ -25,13 +25,17 @@ namespace Script.Triggers
         {
             PlayTimeline();
         }
-
+        
+        
         // Called when the mouse button is released over the object
         void OnMouseDown()
         {
-            PlayTimeline();
+            Debug.Log("MouseDownWorking");
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
+
+            PlayTimeline();
+            
 
         }
 
