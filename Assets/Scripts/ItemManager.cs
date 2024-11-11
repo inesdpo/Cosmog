@@ -51,6 +51,7 @@ public class ItemManager : MonoBehaviour
                 Debug.Log("Event Triggered");
             }
         }*/
+        ActivateInventory();
     }
 
     public void ItemClick(GameObject clickedGO, Item item)
@@ -64,9 +65,19 @@ public class ItemManager : MonoBehaviour
             {
                 inventoryItem.ToggleInventoryItem(true);
                 item.gameObject.SetActive(false);
-                objectToActivate.SetActive(true);
+                //objectToActivate.SetActive(true);
                 break;
             }
+        }
+    }
+
+    public void ActivateInventory()
+    {
+        if (Input.GetKeyUp(KeyCode.V))
+        {
+            
+            objectToActivate.SetActive(!objectToActivate.activeSelf);
+            
         }
     }
 
@@ -78,5 +89,5 @@ public class ItemManager : MonoBehaviour
         }
     }*/
 
-    
+
 }
