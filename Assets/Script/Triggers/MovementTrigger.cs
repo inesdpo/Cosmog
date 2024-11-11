@@ -23,6 +23,21 @@ namespace Script.Triggers
 
         protected override void OnEnterAction(Collider other)
         {
+            PlayTimeline();
+        }
+
+        // Called when the mouse button is released over the object
+        void OnMouseDown()
+        {
+            PlayTimeline();
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+
+        }
+
+        // Separate method to play the timeline
+        private void PlayTimeline()
+        {
             if (animatorTarget != null)
             {
                 Debug.Log("Playing Timeline sequence!");
