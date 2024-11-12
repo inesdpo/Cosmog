@@ -21,23 +21,33 @@ namespace Script.Triggers
             }
         }
 
+        private bool isPlayerInTrigger = false;
+
         protected override void OnEnterAction(Collider other)
         {
-            PlayTimeline();
+            if (other.CompareTag("Player"))
+            {
+                isPlayerInTrigger = true;
+            }
         }
-        
-        
-        // Called when the mouse button is released over the object
-        void OnMouseDown()
+
+        protected override void OnExitAction(Collider other)
         {
-            Debug.Log("MouseDownWorking");
-            Cursor.lockState = CursorLockMode.Confined;
-            Cursor.visible = true;
-
-            PlayTimeline();
-            
-
+            if (other.CompareTag("Player"))
+            {
+                isPlayerInTrigger = false;
+            }
         }
+
+        void Update()
+        {
+            if (isPlayerInTrigger && Input.GetKeyDown(KeyCode.E))
+            {
+                Debug.Log("It's Working");
+                PlayTimeline();
+            }
+        }
+
 
         // Separate method to play the timeline
         private void PlayTimeline()
