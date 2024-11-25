@@ -23,6 +23,8 @@ namespace Script.Triggers
 
         private bool isPlayerInTrigger = false;
 
+        private bool CanPlayAnimator = false;
+
         protected override void OnEnterAction(Collider other)
         {
             if (other.CompareTag("Player"))
@@ -41,7 +43,12 @@ namespace Script.Triggers
 
         void Update()
         {
-            if (isPlayerInTrigger && Input.GetKeyDown(KeyCode.E))
+            if(Input.GetKeyDown(KeyCode.E))
+            { 
+                CanPlayAnimator = true;
+            }
+
+            if (isPlayerInTrigger && CanPlayAnimator)
             {
                 Debug.Log("It's Working");
                 PlayTimeline();
@@ -57,6 +64,11 @@ namespace Script.Triggers
                 Debug.Log("Playing Timeline sequence!");
                 animatorTarget.Play();  // Play the Timeline
             }
+        }
+
+        public void OnActivated()
+        {
+            CanPlayAnimator = true;
         }
     }
 }
