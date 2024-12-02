@@ -12,6 +12,8 @@ namespace Script.Triggers
 
         private PlayableDirector animatorTarget;
 
+        private bool isOpen = false;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -48,10 +50,11 @@ namespace Script.Triggers
                 CanPlayAnimator = true;
             }
 
-            if (isPlayerInTrigger && CanPlayAnimator)
+            if (CanPlayAnimator && !isOpen)
             {
                 Debug.Log("It's Working");
                 PlayTimeline();
+                isOpen = true;
             }
         }
 
