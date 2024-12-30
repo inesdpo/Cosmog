@@ -5,73 +5,122 @@ using UnityEngine.Playables;
 
 namespace Script.Triggers
 {
-    public class MovementTrigger : TriggerBehaviour
-    {
-
-        [SerializeField] public GameObject animator;
-
-        private PlayableDirector animatorTarget;
-
-        private bool isOpen = false;
-
-        // Start is called before the first frame update
-        void Start()
+        public class MovementTrigger : TriggerBehaviour
         {
-            if(animator)
+            [Header("Animation Settings")]
+            [SerializeField] private GameObject animator;
+            [SerializeField] private bool playOnlyOnce = false; // Option to play animation only once
+            [SerializeField] private float cooldownTime = 0.5f; // Prevent spam-clicking
+
+            private PlayableDirector animatorTarget;
+            private bool isPlayerInTrigger = false;
+            private bool canPlayAnimator = false;
+            private bool hasPlayedOnce = false;
+            private float lastPlayTime = 0f;
+
+            private void Start()
             {
-                animatorTarget = animator.GetComponent<PlayableDirector>();
+                if (animator)
+                {
+                    animatorTarget = animator.GetComponent<PlayableDirector>();
+                }
             }
-        }
 
-        private bool isPlayerInTrigger = false;
-
-        private bool CanPlayAnimator = false;
-
-        protected override void OnEnterAction(Collider other)
-        {
-            if (other.CompareTag("Player"))
+            protected override void OnEnterAction(Collider other)
             {
-                isPlayerInTrigger = true;
+                if (other.CompareTag("Player"))
+                {
+                    isPlayerInTrigger = true;
+                }
             }
-        }
 
-        protected override void OnExitAction(Collider other)
-        {
-            if (other.CompareTag("Player"))
+            protected override void OnExitAction(Collider other)
             {
-                isPlayerInTrigger = false;
-            }
-        }
-
-        void Update()
-        {
-            if(Input.GetKeyDown(KeyCode.E))
-            { 
-                CanPlayAnimator = true;
+                if (other.CompareTag("Player"))
+                {
+                    isPlayerInTrigger = false;
+                    canPlayAnimator = false; // Reset when player exits
+                }
             }
 
-            if (CanPlayAnimator && !isOpen)
+            private void Update()
             {
-                Debug.Log("It's Working");
-                PlayTimeline();
-                isOpen = true;
+                if (!isPlayerInTrigger) return; // Only check input if player is in trigger
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    // Check if we can play the animation
+                    if (CanPlayAnimation())
+                    {
+                        PlayTimeline();
+                        lastPlayTime = Time.time;
+                        hasPlayedOnce = true;
+                    }
+                }
             }
-        }
 
-
-        // Separate method to play the timeline
-        private void PlayTimeline()
-        {
-            if (animatorTarget != null)
+            private bool CanPlayAnimation()
             {
-                Debug.Log("Playing Timeline sequence!");
-                animatorTarget.Play();  // Play the Timeline
+                // Check cooldown
+                if (Time.time - lastPlayTime < cooldownTime)
+                {
+                    return false;
+                }
+
+                // Check if animation should only play once
+                if (playOnlyOnce && hasPlayedOnce)
+                {
+                    return false;
+                }
+
+                // Check if animation is currently playing
+                if (animatorTarget != null && animatorTarget.state == PlayState.Playing)
+                {
+                    return false;
+                }
+
+                return true;
+            }
+
+            private void PlayTimeline()
+            {
+                if (animatorTarget != null)
+                {
+                    Debug.Log("Playing Timeline sequence!");
+
+                    // If the animation is already playing, stop it first
+                    if (animatorTarget.state == PlayState.Playing)
+                    {
+                        animatorTarget.Stop();
+                    }
+
+                    // Play from start
+                    animatorTarget.time = 0;
+                    animatorTarget.Play();
+                }
+                else
+                {
+                    Debug.LogWarning("No PlayableDirector component found on animator object!");
+                }
+            }
+
+            public void OnActivated()
+            {
+                canPlayAnimator = true;
+            }
+
+            // Method to reset the animation state if needed
+            public void ResetAnimation()
+            {
+                hasPlayedOnce = false;
+                lastPlayTime = 0f;
+            }
+
+            // Optional: Method to check if animation can be played (for external scripts)
+            public bool IsReadyToPlay()
+            {
+                return isPlayerInTrigger && CanPlayAnimation();
             }
         }
-
-        public void OnActivated()
-        {
-            CanPlayAnimator = true;
-        }
-    }
+    
 }

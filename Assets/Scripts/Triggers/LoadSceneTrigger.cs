@@ -12,13 +12,6 @@ namespace Script.Triggers
   ///Debug.Log("Scene Loaded");
   ///          yield return null; // Wait until the scene is fully loaded
   /// </summary>
-
-    using UnityEngine;
-    using UnityEngine.SceneManagement;
-    using System.Collections;
-    using System.Collections.Generic;
-    using Script.Triggers;
-
     public class LoadSceneTrigger : TriggerBehaviour
     {
         [Header("Scene Loading Settings")]
