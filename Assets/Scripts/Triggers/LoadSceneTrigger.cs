@@ -11,61 +11,152 @@ namespace Script.Triggers
   ///        {
   ///Debug.Log("Scene Loaded");
   ///          yield return null; // Wait until the scene is fully loaded
-/// </summary>
+  /// </summary>
 
-public class LoadSceneTrigger : TriggerBehaviour
+    using UnityEngine;
+    using UnityEngine.SceneManagement;
+    using System.Collections;
+    using System.Collections.Generic;
+    using Script.Triggers;
+
+    public class LoadSceneTrigger : TriggerBehaviour
     {
+        [Header("Scene Loading Settings")]
         public string sceneToLoad;
-        
         public string objectNameToDisableCollider;
+
+        [Header("Inventory Check Settings")]
+        public string requiredBadgeName;
+        public bool requiresBadgeCheck = false;
+
+        [Header("Object Transfer Settings")]
+        public List<GameObject> objectsToTransfer;
+        private ItemManager itemManager;
+
+        private void Start()
+        {
+            // Get reference to ItemManager
+            itemManager = FindObjectOfType<ItemManager>();
+            if (itemManager == null && requiresBadgeCheck)
+            {
+                Debug.LogError("ItemManager not found but badge check is required!");
+            }
+
+            // Mark objects to persist between scenes
+            foreach (var obj in objectsToTransfer)
+            {
+                if (obj != null)
+                {
+                    DontDestroyOnLoad(obj);
+                }
+            }
+        }
+
+        protected override void OnTriggerEnter(Collider other)
+        {
+            if (!other.gameObject.CompareTag("Player")) return;
+
+            if (requiresBadgeCheck)
+            {
+                bool hasBadge = CheckForBadge();
+                if (!hasBadge)
+                {
+                    Debug.Log($"Player needs the {requiredBadgeName} badge to proceed!");
+                    return;
+                }
+            }
+
+            LoadScene(sceneToLoad, objectNameToDisableCollider);
+        }
+
+        private bool CheckForBadge()
+        {
+            if (itemManager == null) return false;
+
+            // Check inventory items for the required badge
+            foreach (var inventoryItem in itemManager.GetInventoryItems())
+            {
+                if (inventoryItem.GetItemName() == requiredBadgeName && inventoryItem.gameObject.activeSelf)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         protected void LoadScene(string sceneName, string objectNameToDisableCollider)
         {
             StartCoroutine(LoadSceneAsync(sceneName, objectNameToDisableCollider));
         }
-        protected override void OnTriggerEnter(Collider other)
-        {
-            if (other.gameObject.CompareTag("Player"))
-            {
-                // Call the LoadScene method from the base class
-                LoadScene(sceneToLoad, objectNameToDisableCollider);
-            }
-
-        }
 
         private IEnumerator LoadSceneAsync(string sceneName, string objectNameToDisableCollider)
         {
-            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
-            yield return new WaitUntil(() => asyncLoad.isDone);
-
-            // Repeatedly attempt to find the object and remove its collider
-            GameObject targetObject = null;
-            for (int i = 0; i < 10; i++)
+            // Store positions of objects to transfer before loading new scene
+            Dictionary<GameObject, Vector3> originalPositions = new Dictionary<GameObject, Vector3>();
+            foreach (var obj in objectsToTransfer)
             {
-                targetObject = GameObject.Find(objectNameToDisableCollider);
-                if (targetObject != null) break;
-
-                yield return new WaitForSeconds(0.1f); // Wait before trying again
+                if (obj != null)
+                {
+                    originalPositions[obj] = obj.transform.position;
+                }
             }
 
+            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+            asyncLoad.allowSceneActivation = true;
+
+            while (!asyncLoad.isDone)
+            {
+                yield return null;
+            }
+
+            // Restore transferred objects to their original positions in new scene
+            foreach (var kvp in originalPositions)
+            {
+                if (kvp.Key != null)
+                {
+                    kvp.Key.transform.position = kvp.Value;
+                }
+            }
+
+            // Find and disable collider in new scene
+            StartCoroutine(FindAndDisableCollider(objectNameToDisableCollider));
+        }
+
+        private IEnumerator FindAndDisableCollider(string objectName)
+        {
+            if (string.IsNullOrEmpty(objectName)) yield break;
+
+            GameObject targetObject = null;
+            float timeoutDuration = 2f;
+            float elapsedTime = 0f;
+
+            while (targetObject == null && elapsedTime < timeoutDuration)
+            {
+                targetObject = GameObject.Find(objectName);
+                if (targetObject == null)
+                {
+                    elapsedTime += 0.1f;
+                    yield return new WaitForSeconds(0.1f);
+                }
+            }
 
             if (targetObject != null)
             {
-                    Collider collider = targetObject.GetComponent<Collider>();
-                    if (collider != null)
-                    {
-                        Destroy(collider); // Remove the collider
-                        Debug.Log("Collider removed from " + objectNameToDisableCollider);
-                    }
-                    else
-                    {
-                        Debug.LogWarning("Collider not found on " + objectNameToDisableCollider);
-                    }
+                Collider collider = targetObject.GetComponent<Collider>();
+                if (collider != null)
+                {
+                    Destroy(collider);
+                    Debug.Log($"Collider removed from {objectName}");
+                }
+                else
+                {
+                    Debug.LogWarning($"Collider not found on {objectName}");
+                }
             }
             else
             {
-                Debug.LogWarning("Object with name " + objectNameToDisableCollider + " not found in the new scene.");
+                Debug.LogWarning($"Object {objectName} not found in the new scene after {timeoutDuration} seconds.");
             }
-           
         }
     }
 }

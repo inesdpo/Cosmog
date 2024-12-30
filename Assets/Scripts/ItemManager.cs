@@ -56,6 +56,11 @@ public class ItemManager : MonoBehaviour
         ActivateInventory();
     }
 
+    public List<InventoryItem> GetInventoryItems()
+    {
+        return inventoryItems;
+    }
+
     public void ItemClick(GameObject clickedGO, Item item)
     {
         Debug.Log("The game object " + clickedGO.name + " was clicked");
