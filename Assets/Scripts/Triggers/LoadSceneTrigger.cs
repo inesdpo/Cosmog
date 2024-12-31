@@ -12,8 +12,18 @@ namespace Script.Triggers
   ///Debug.Log("Scene Loaded");
   ///          yield return null; // Wait until the scene is fully loaded
   /// </summary>
+
     public class LoadSceneTrigger : TriggerBehaviour
     {
+        [System.Serializable]
+        public class TransferredObjectData
+        {
+            public GameObject objectToTransfer;
+            public Vector3 positionInNewScene;
+            public Quaternion rotationInNewScene;
+            public bool maintainCurrentTransform = false;
+        }
+
         [Header("Scene Loading Settings")]
         public string sceneToLoad;
         public string objectNameToDisableCollider;
@@ -23,24 +33,41 @@ namespace Script.Triggers
         public bool requiresBadgeCheck = false;
 
         [Header("Object Transfer Settings")]
-        public List<GameObject> objectsToTransfer;
+        public List<TransferredObjectData> objectsToTransfer = new List<TransferredObjectData>();
+        public bool isPersistentTransfer = true; // If true, objects will be available for next scene transfer
+
+        private static Dictionary<string, List<GameObject>> persistentObjects = new Dictionary<string, List<GameObject>>();
         private ItemManager itemManager;
 
         private void Start()
         {
-            // Get reference to ItemManager
             itemManager = FindObjectOfType<ItemManager>();
             if (itemManager == null && requiresBadgeCheck)
             {
                 Debug.LogError("ItemManager not found but badge check is required!");
             }
 
-            // Mark objects to persist between scenes
-            foreach (var obj in objectsToTransfer)
+            // If this scene has received any persistent objects, position them correctly
+            string currentScene = SceneManager.GetActiveScene().name;
+            if (persistentObjects.ContainsKey(currentScene))
             {
-                if (obj != null)
+                PositionPersistentObjectsInScene();
+            }
+        }
+
+        private void PositionPersistentObjectsInScene()
+        {
+            string currentScene = SceneManager.GetActiveScene().name;
+            if (!persistentObjects.ContainsKey(currentScene)) return;
+
+            foreach (GameObject obj in persistentObjects[currentScene])
+            {
+                // Find matching transfer data for this object
+                TransferredObjectData transferData = objectsToTransfer.Find(data => data.objectToTransfer.name == obj.name);
+                if (transferData != null && !transferData.maintainCurrentTransform)
                 {
-                    DontDestroyOnLoad(obj);
+                    obj.transform.position = transferData.positionInNewScene;
+                    obj.transform.rotation = transferData.rotationInNewScene;
                 }
             }
         }
@@ -49,14 +76,10 @@ namespace Script.Triggers
         {
             if (!other.gameObject.CompareTag("Player")) return;
 
-            if (requiresBadgeCheck)
+            if (requiresBadgeCheck && !CheckForBadge())
             {
-                bool hasBadge = CheckForBadge();
-                if (!hasBadge)
-                {
-                    Debug.Log($"Player needs the {requiredBadgeName} badge to proceed!");
-                    return;
-                }
+                Debug.Log($"Player needs the {requiredBadgeName} badge to proceed!");
+                return;
             }
 
             LoadScene(sceneToLoad, objectNameToDisableCollider);
@@ -66,7 +89,6 @@ namespace Script.Triggers
         {
             if (itemManager == null) return false;
 
-            // Check inventory items for the required badge
             foreach (var inventoryItem in itemManager.GetInventoryItems())
             {
                 if (inventoryItem.GetItemName() == requiredBadgeName && inventoryItem.gameObject.activeSelf)
@@ -84,44 +106,47 @@ namespace Script.Triggers
 
         private IEnumerator LoadSceneAsync(string sceneName, string objectNameToDisableCollider)
         {
-            // Store positions of objects to transfer before loading new scene
-            Dictionary<GameObject, Vector3> originalPositions = new Dictionary<GameObject, Vector3>();
-            foreach (var obj in objectsToTransfer)
-            {
-                if (obj != null)
-                {
-                    originalPositions[obj] = obj.transform.position;
-                }
-            }
+            // Prepare objects for transfer
+            PrepareObjectsForTransfer(sceneName);
 
             AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
-            asyncLoad.allowSceneActivation = true;
 
             while (!asyncLoad.isDone)
             {
                 yield return null;
             }
 
-            // Restore transferred objects to their original positions in new scene
-            foreach (var kvp in originalPositions)
+            // Handle collider disabling in new scene
+            StartCoroutine(FindAndDisableCollider(objectNameToDisableCollider));
+        }
+
+        private void PrepareObjectsForTransfer(string targetScene)
+        {
+            List<GameObject> objectsForScene = new List<GameObject>();
+
+            foreach (var transferData in objectsToTransfer)
             {
-                if (kvp.Key != null)
+                if (transferData.objectToTransfer != null)
                 {
-                    kvp.Key.transform.position = kvp.Value;
+                    DontDestroyOnLoad(transferData.objectToTransfer);
+                    objectsForScene.Add(transferData.objectToTransfer);
                 }
             }
 
-            // Find and disable collider in new scene
-            StartCoroutine(FindAndDisableCollider(objectNameToDisableCollider));
+            if (isPersistentTransfer)
+            {
+                // Store objects for potential future transfers
+                persistentObjects[targetScene] = objectsForScene;
+            }
         }
 
         private IEnumerator FindAndDisableCollider(string objectName)
         {
             if (string.IsNullOrEmpty(objectName)) yield break;
 
-            GameObject targetObject = null;
             float timeoutDuration = 2f;
             float elapsedTime = 0f;
+            GameObject targetObject = null;
 
             while (targetObject == null && elapsedTime < timeoutDuration)
             {
@@ -141,15 +166,17 @@ namespace Script.Triggers
                     Destroy(collider);
                     Debug.Log($"Collider removed from {objectName}");
                 }
-                else
-                {
-                    Debug.LogWarning($"Collider not found on {objectName}");
-                }
             }
             else
             {
-                Debug.LogWarning($"Object {objectName} not found in the new scene after {timeoutDuration} seconds.");
+                Debug.LogWarning($"Object {objectName} not found in new scene after {timeoutDuration} seconds.");
             }
+        }
+
+        // Method to cleanup persistent objects if needed
+        public static void ClearPersistentObjects()
+        {
+            persistentObjects.Clear();
         }
     }
 }
