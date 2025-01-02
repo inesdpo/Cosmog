@@ -122,6 +122,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &1499717 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4433824571687385378, guid: b8475286a7b47ca469799117aa96aa65, type: 3}
+  m_PrefabInstance: {fileID: 4642449307588745441}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6283112
 GameObject:
   m_ObjectHideFlags: 0
@@ -35225,7 +35230,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7794978836367546877, guid: b8475286a7b47ca469799117aa96aa65, type: 3}
   m_PrefabInstance: {fileID: 4642449307588745441}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1499717}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8d90b26dd85be0449e568a0348613d6, type: 3}
@@ -49096,6 +49101,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 294336545}
     m_Modifications:
+    - target: {fileID: 2726284135126638439, guid: 32cb729af27256142a170c25b223efad, type: 3}
+      propertyPath: inventoryItemGameObject
+      value: 
+      objectReference: {fileID: 1499717}
     - target: {fileID: 4239660618255786102, guid: 32cb729af27256142a170c25b223efad, type: 3}
       propertyPath: items.Array.data[0]
       value: 
@@ -51329,6 +51338,10 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5645489183188470720, guid: b8475286a7b47ca469799117aa96aa65, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 59bd5fca7f594a34d804626ed988de4d, type: 2}
     - target: {fileID: 7273177693947538748, guid: b8475286a7b47ca469799117aa96aa65, type: 3}
       propertyPath: m_Convex
       value: 1
