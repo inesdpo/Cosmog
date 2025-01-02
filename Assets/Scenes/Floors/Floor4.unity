@@ -12595,12 +12595,13 @@ GameObject:
   - component: {fileID: 234368109}
   - component: {fileID: 234368111}
   - component: {fileID: 234368110}
+  - component: {fileID: 234368112}
   m_Layer: 0
   m_Name: Fridge Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &234368109
 Transform:
@@ -12668,6 +12669,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 234368108}
   m_Mesh: {fileID: -5021464522597332381, guid: 3902e93d15ca3574db03cd96ed1c9682, type: 3}
+--- !u!114 &234368112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234368108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef3614d58afed6543a561049ce1cd6a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finalYRotation: -90
 --- !u!1 &234722947
 GameObject:
   m_ObjectHideFlags: 0
@@ -72649,12 +72663,13 @@ GameObject:
   - component: {fileID: 1366930153}
   - component: {fileID: 1366930155}
   - component: {fileID: 1366930154}
+  - component: {fileID: 1366930156}
   m_Layer: 0
   m_Name: Fridge Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1366930153
 Transform:
@@ -72722,6 +72737,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366930152}
   m_Mesh: {fileID: -5021464522597332381, guid: 3902e93d15ca3574db03cd96ed1c9682, type: 3}
+--- !u!114 &1366930156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366930152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef3614d58afed6543a561049ce1cd6a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finalYRotation: -90
 --- !u!1 &1369906217
 GameObject:
   m_ObjectHideFlags: 0
@@ -116769,12 +116797,13 @@ GameObject:
   - component: {fileID: 2075826162}
   - component: {fileID: 2075826164}
   - component: {fileID: 2075826163}
+  - component: {fileID: 2075826165}
   m_Layer: 0
   m_Name: Fridge Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &2075826162
 Transform:
@@ -116842,6 +116871,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2075826161}
   m_Mesh: {fileID: -5021464522597332381, guid: 3902e93d15ca3574db03cd96ed1c9682, type: 3}
+--- !u!114 &2075826165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075826161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef3614d58afed6543a561049ce1cd6a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finalYRotation: -90
 --- !u!1 &2076924623
 GameObject:
   m_ObjectHideFlags: 0
