@@ -8,6 +8,7 @@ public class ChangeRotation : MonoBehaviour
 
     private float initialYRotation;     
     private bool isRotated = false;
+    private bool playerInCollider=false;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,7 @@ public class ChangeRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.C))
+        if (Input.GetKey(KeyCode.C) && (playerInCollider == true))
         {
             if (isRotated)
             {
@@ -39,5 +40,12 @@ public class ChangeRotation : MonoBehaviour
         currentRotation.y = yRotation;
 
         transform.eulerAngles = currentRotation;
+    }
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Fridge"))
+        {
+            playerInCollider = true;
+        }
     }
 }

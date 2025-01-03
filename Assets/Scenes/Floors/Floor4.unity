@@ -12770,7 +12770,7 @@ GameObject:
   - component: {fileID: 234368112}
   m_Layer: 0
   m_Name: Fridge Door
-  m_TagString: Untagged
+  m_TagString: Fridge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75964,7 +75964,7 @@ GameObject:
   - component: {fileID: 1366930156}
   m_Layer: 0
   m_Name: Fridge Door
-  m_TagString: Untagged
+  m_TagString: Fridge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121877,7 +121877,7 @@ GameObject:
   - component: {fileID: 2075826165}
   m_Layer: 0
   m_Name: Fridge Door
-  m_TagString: Untagged
+  m_TagString: Fridge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
