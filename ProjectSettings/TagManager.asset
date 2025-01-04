@@ -8,6 +8,7 @@ TagManager:
   - inventoryItem
   - Anchor
   - Fridge
+  - Pc
   layers:
   - Default
   - TransparentFX
