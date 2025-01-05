@@ -6,6 +6,7 @@ public class OpenComputer : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private Animator computerAnim;
+    [SerializeField] private GameObject item;
 
     private bool playerInCollider = false;
 
@@ -22,7 +23,14 @@ public class OpenComputer : MonoBehaviour
         {
             computerAnim.gameObject.GetComponent<Animator>().enabled = true;
             computerAnim.Play("Computer");
+            StartCoroutine(ActivateItemAfterDelay(0.2f));
         }
+    }
+
+    private IEnumerator ActivateItemAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay); 
+        item.SetActive(true); 
     }
 
     public void OnTriggerEnter(Collider other)
