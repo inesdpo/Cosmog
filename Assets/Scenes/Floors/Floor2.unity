@@ -5267,6 +5267,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2372726498791936223, guid: b6454b095275487498c0e0467f5f44ed, type: 3}
+      propertyPath: finalZRotation
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2452458918714506082, guid: b6454b095275487498c0e0467f5f44ed, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5490896786152176372, guid: b6454b095275487498c0e0467f5f44ed, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8329,6 +8341,14 @@ PrefabInstance:
     - target: {fileID: 784448481731663916, guid: b6454b095275487498c0e0467f5f44ed, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2452458918714506082, guid: b6454b095275487498c0e0467f5f44ed, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5490896786152176372, guid: b6454b095275487498c0e0467f5f44ed, type: 3}
+      propertyPath: m_TagString
+      value: Fridge
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
