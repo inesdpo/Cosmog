@@ -12768,6 +12768,7 @@ GameObject:
   - component: {fileID: 234368111}
   - component: {fileID: 234368110}
   - component: {fileID: 234368112}
+  - component: {fileID: 234368113}
   m_Layer: 0
   m_Name: Fridge Door
   m_TagString: Fridge
@@ -12854,6 +12855,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finalYRotation: -90
+--- !u!65 &234368113
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234368108}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.65, y: 1.5413543, z: 1.4325027}
+  m_Center: {x: 0.29481894, y: -0.73329276, z: -0.0011605024}
 --- !u!1 &234722947
 GameObject:
   m_ObjectHideFlags: 0
@@ -76035,6 +76057,7 @@ GameObject:
   - component: {fileID: 1366930155}
   - component: {fileID: 1366930154}
   - component: {fileID: 1366930156}
+  - component: {fileID: 1366930157}
   m_Layer: 0
   m_Name: Fridge Door
   m_TagString: Fridge
@@ -76121,6 +76144,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finalYRotation: -90
+--- !u!65 &1366930157
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366930152}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.65, y: 1.501656, z: 1.4325027}
+  m_Center: {x: 0.2948199, y: -0.71344364, z: -0.0011605024}
 --- !u!1 &1369906217
 GameObject:
   m_ObjectHideFlags: 0
@@ -81869,6 +81913,8 @@ GameObject:
   - component: {fileID: 1450820358}
   - component: {fileID: 1450820360}
   - component: {fileID: 1450820359}
+  - component: {fileID: 1450820362}
+  - component: {fileID: 1450820361}
   m_Layer: 0
   m_Name: Fridge Door
   m_TagString: Untagged
@@ -81942,6 +81988,40 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450820357}
   m_Mesh: {fileID: -5021464522597332381, guid: 3902e93d15ca3574db03cd96ed1c9682, type: 3}
+--- !u!65 &1450820361
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450820357}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.65, y: 1.3495494, z: 1.4325032}
+  m_Center: {x: 0.2948218, y: -0.637391, z: -0.0011602376}
+--- !u!114 &1450820362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450820357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef3614d58afed6543a561049ce1cd6a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finalYRotation: -90
 --- !u!1001 &1452186449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -121952,6 +122032,7 @@ GameObject:
   - component: {fileID: 2075826164}
   - component: {fileID: 2075826163}
   - component: {fileID: 2075826165}
+  - component: {fileID: 2075826166}
   m_Layer: 0
   m_Name: Fridge Door
   m_TagString: Fridge
@@ -122038,6 +122119,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finalYRotation: -90
+--- !u!65 &2075826166
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075826161}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.65, y: 1.3801166, z: 1.4325027}
+  m_Center: {x: 0.29481894, y: -0.6526739, z: -0.0011605023}
 --- !u!1 &2076924623
 GameObject:
   m_ObjectHideFlags: 0
