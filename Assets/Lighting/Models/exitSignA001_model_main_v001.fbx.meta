@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 815b13acd07a959498596d15dfff96ba
+guid: 77febb19db9b62247b18db8a589f2208
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Spotlight
-    second: {fileID: 2100000, guid: cd40ae074039bc441823d01761809e2a, type: 2}
+      name: mSS_glass
+    second: {fileID: 2100000, guid: f9316e321d59f2248b5d974cf821180f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mSS_logo
+    second: {fileID: 2100000, guid: b6584f2afb8a16346baa455f0c2ce203, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mSS_plastic
+    second: {fileID: 2100000, guid: b923d26ae55190549a6cf24bbf210b75, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
