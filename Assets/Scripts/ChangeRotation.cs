@@ -8,7 +8,7 @@ public class ChangeRotation : MonoBehaviour
 
     private float initialYRotation;     
     private bool isRotated = false;
-    private bool playerInCollider=false;
+    [SerializeField] private bool playerInCollider=false;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +30,8 @@ public class ChangeRotation : MonoBehaviour
                 Rotation(finalYRotation);
             }
             isRotated = !isRotated;
+
+
         }
     }
 
@@ -43,9 +45,17 @@ public class ChangeRotation : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Fridge"))
+        if (other.CompareTag("Player"))
         {
             playerInCollider = true;
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInCollider = false;
         }
     }
 }

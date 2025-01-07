@@ -18611,7 +18611,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: bacd0caeb9b5e9d4e92424c31ea94c00, type: 3}
+  m_audioClip: {fileID: 8300000, guid: db7cfb28cd02cdc4abbd8453c049ca84, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -48395,7 +48395,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2850467257262301511, guid: ec1a6727b88656f43a221f841f9c5f46, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3072994924829475934, guid: ec1a6727b88656f43a221f841f9c5f46, type: 3}
       propertyPath: objectsToTransfer.Array.size
@@ -48463,7 +48463,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3768123045172348183, guid: ec1a6727b88656f43a221f841f9c5f46, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3879042715356027075, guid: ec1a6727b88656f43a221f841f9c5f46, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -48479,7 +48479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4072317578396501344, guid: ec1a6727b88656f43a221f841f9c5f46, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4111490277375065472, guid: ec1a6727b88656f43a221f841f9c5f46, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -50582,12 +50582,13 @@ GameObject:
   - component: {fileID: 8563153662618667762}
   - component: {fileID: 2557971900177221556}
   - component: {fileID: 8563153662618667763}
+  - component: {fileID: 8563153662618667764}
   m_Layer: 0
   m_Name: Fridge Door.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &2459513672633158513
 GameObject:
@@ -52581,13 +52582,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2457477721132429739}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: 20.540064, y: 7.452009, z: -85.37818}
   m_LocalScale: {x: 4.325066, y: 4.325066, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 543450653083100286}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!1 &3559817855119441056
 GameObject:
   m_ObjectHideFlags: 0
@@ -54759,11 +54760,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4433824571687385378, guid: b8475286a7b47ca469799117aa96aa65, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4637987654212364755, guid: b8475286a7b47ca469799117aa96aa65, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5645489183188470720, guid: b8475286a7b47ca469799117aa96aa65, type: 3}
       propertyPath: m_CastShadows
@@ -54773,6 +54774,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 59bd5fca7f594a34d804626ed988de4d, type: 2}
+    - target: {fileID: 6775686355974904030, guid: b8475286a7b47ca469799117aa96aa65, type: 3}
+      propertyPath: m_SceneBindings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6775686355974904030, guid: b8475286a7b47ca469799117aa96aa65, type: 3}
+      propertyPath: m_SceneBindings.Array.data[1].key
+      value: 
+      objectReference: {fileID: 7423503868505532446, guid: 93752db3a1fae0b40aad52c0f87aba62, type: 2}
     - target: {fileID: 7273177693947538748, guid: b8475286a7b47ca469799117aa96aa65, type: 3}
       propertyPath: m_Convex
       value: 1
@@ -54787,7 +54796,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7856656783084482049, guid: b8475286a7b47ca469799117aa96aa65, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8067891535626139476, guid: b8475286a7b47ca469799117aa96aa65, type: 3}
       propertyPath: m_LocalPosition.x
@@ -63929,6 +63938,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finalYRotation: -90
+  playerInCollider: 0
+--- !u!65 &8563153662618667764
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2457477721132429739}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.1608353, y: 1.7062104, z: 1.8608284}
+  m_Center: {x: 0.3766715, y: -0.26730862, z: -0.21532343}
 --- !u!1 &8565637266595978471
 GameObject:
   m_ObjectHideFlags: 0
