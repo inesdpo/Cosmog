@@ -63,7 +63,7 @@ namespace Scripts.Triggers
                 }
 
                 // Make the canvas face the player
-                canvasTransform.rotation = Quaternion.LookRotation(-directionToPlayer);
+                canvasTransform.rotation = Quaternion.LookRotation(directionToPlayer);
             }
         }
 
