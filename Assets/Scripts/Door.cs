@@ -9,7 +9,6 @@ public class Door : MonoBehaviour
 
     private float initialZRotation;
     [SerializeField] private GameObject player;
-    [SerializeField] private Animator doorAnim;
     private bool isRotated = false;
     [SerializeField] private bool playerInCollider = false;
     [SerializeField] private AudioSource opening;
@@ -19,7 +18,6 @@ public class Door : MonoBehaviour
     void Start()
     {
         initialZRotation = transform.eulerAngles.z;
-        //doorAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -46,38 +44,18 @@ public class Door : MonoBehaviour
 
         }
 
-        /*if (Input.GetKeyDown(KeyCode.C) && (playerInCollider == true))
-        {
-            if (isRotated)
-            {
-                doorAnim.gameObject.GetComponent<Animator>().enabled = true;
-                doorAnim.Play("doorclosing");
-                opening.gameObject.GetComponent<AudioSource>().enabled = false;
-                closing.gameObject.GetComponent<AudioSource>().enabled = true;
-                closing.Play();
-            }
-            else
-            {
-                doorAnim.Play("door");
-                closing.gameObject.GetComponent<AudioSource>().enabled = false;
-                opening.gameObject.GetComponent<AudioSource>().enabled = true;
-                opening.Play();
-            }
-            isRotated = !isRotated;*/
-
-
-            //}
+      
     }
 
-public void Rotation(float zRotation)
-{
+    public void Rotation(float zRotation)
+    {
     Vector3 currentRotation = transform.eulerAngles;
 
     currentRotation.z = zRotation;
 
     transform.eulerAngles = currentRotation;
-}
-public void OnTriggerEnter(Collider other)
+    }
+    public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
