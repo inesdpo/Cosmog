@@ -23,7 +23,7 @@ public class OpenComputer : MonoBehaviour
         {
             computerAnim.gameObject.GetComponent<Animator>().enabled = true;
             computerAnim.Play("Computer");
-            StartCoroutine(ActivateItemAfterDelay(0.2f));
+            StartCoroutine(ActivateItemAfterDelay(0.1f));
         }
     }
 
