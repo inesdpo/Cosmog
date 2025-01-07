@@ -9,11 +9,14 @@ public class ChangeRotation : MonoBehaviour
     private float initialYRotation;     
     private bool isRotated = false;
     [SerializeField] private bool playerInCollider=false;
+    [SerializeField]private AudioSource opening;
+    [SerializeField] private AudioSource closing;
 
     // Start is called before the first frame update
     void Start()
     {
         initialYRotation = transform.eulerAngles.y;
+
     }
 
     // Update is called once per frame
@@ -24,10 +27,16 @@ public class ChangeRotation : MonoBehaviour
             if (isRotated)
             {
                 Rotation(initialYRotation);
+                opening.gameObject.GetComponent<AudioSource>().enabled = false;
+                closing.gameObject.GetComponent<AudioSource>().enabled = true;
+                closing.Play();
             }
             else
             {
                 Rotation(finalYRotation);
+                closing.gameObject.GetComponent<AudioSource>().enabled = false;
+                opening.gameObject.GetComponent<AudioSource>().enabled = true;
+                opening.Play();
             }
             isRotated = !isRotated;
 
