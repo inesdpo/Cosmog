@@ -81,13 +81,7 @@ namespace Script.Triggers
         {
             if (!other.gameObject.CompareTag("Player")) return;
 
-            if (requiresBadgeCheck && !CheckForBadge() && triggerAction.action.WasPressedThisFrame())
-            {
-                Debug.Log($"Player needs the {requiredBadgeName} badge to proceed!");
-                return;
-            }
-
-            LoadScene(sceneToLoad, objectNameToDisableCollider);
+           
         }
 
         private bool CheckForBadge()
