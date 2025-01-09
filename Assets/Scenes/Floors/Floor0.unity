@@ -16081,27 +16081,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 91033fcf8a070dd429a55d079f22a5bb, type: 3}
       propertyPath: m_LocalScale.x
-      value: 524.99994
+      value: 421.0552
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 91033fcf8a070dd429a55d079f22a5bb, type: 3}
       propertyPath: m_LocalScale.y
-      value: 525
+      value: 421.05524
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 91033fcf8a070dd429a55d079f22a5bb, type: 3}
       propertyPath: m_LocalScale.z
-      value: 525
+      value: 421.05524
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 91033fcf8a070dd429a55d079f22a5bb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.868253
+      value: 11.863
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 91033fcf8a070dd429a55d079f22a5bb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.166666
+      value: 4.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 91033fcf8a070dd429a55d079f22a5bb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 37.33026
+      value: 37.354
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 91033fcf8a070dd429a55d079f22a5bb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -18958,6 +18958,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1680501587, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1767192439, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_AllowMSAA
       value: 0
@@ -18986,6 +18990,14 @@ PrefabInstance:
       propertyPath: m_RenderPostProcessing
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1178791450436251564, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_CameraYOffset
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178791450436251564, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_RequestedTrackingOriginMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503725, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_Name
       value: XR Origin (XR Rig)
@@ -19004,7 +19016,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.46
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -19040,7 +19052,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6232745470614056090, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_Height
-      value: 130
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6520291404937146767, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_ActionAssets.Array.size
