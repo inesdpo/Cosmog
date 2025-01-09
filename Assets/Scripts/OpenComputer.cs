@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class OpenComputer : MonoBehaviour
 {
@@ -9,17 +10,19 @@ public class OpenComputer : MonoBehaviour
     [SerializeField] private GameObject item;
 
     private bool playerInCollider = false;
+    [SerializeField] private InputActionProperty triggerAction;
 
     // Start is called before the first frame update
     void Start()
     {
         computerAnim = GetComponent<Animator>();
+        triggerAction.action.Enable();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.C) && (playerInCollider == true))
+        if (triggerAction.action.WasPressedThisFrame() && (playerInCollider == true))
         {
             computerAnim.gameObject.GetComponent<Animator>().enabled = true;
             computerAnim.Play("Computer");
