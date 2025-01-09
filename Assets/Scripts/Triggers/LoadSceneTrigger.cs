@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 namespace Script.Triggers
@@ -22,6 +23,7 @@ namespace Script.Triggers
             public Vector3 positionInNewScene;
             public Quaternion rotationInNewScene;
             public bool maintainCurrentTransform = false;
+            
         }
 
         [Header("Scene Loading Settings")]
@@ -39,6 +41,8 @@ namespace Script.Triggers
         private static Dictionary<string, List<GameObject>> persistentObjects = new Dictionary<string, List<GameObject>>();
         private ItemManager itemManager;
 
+        [SerializeField] private InputActionProperty triggerAction;
+
         private void Start()
         {
             itemManager = FindObjectOfType<ItemManager>();
@@ -53,6 +57,7 @@ namespace Script.Triggers
             {
                 PositionPersistentObjectsInScene();
             }
+            triggerAction.action.Enable();
         }
 
         private void PositionPersistentObjectsInScene()
@@ -76,7 +81,7 @@ namespace Script.Triggers
         {
             if (!other.gameObject.CompareTag("Player")) return;
 
-            if (requiresBadgeCheck && !CheckForBadge())
+            if (requiresBadgeCheck && !CheckForBadge() && triggerAction.action.WasPressedThisFrame())
             {
                 Debug.Log($"Player needs the {requiredBadgeName} badge to proceed!");
                 return;

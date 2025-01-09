@@ -21,7 +21,7 @@ namespace Script.Triggers
             [SerializeField] private InputActionProperty triggerAction;
 
 
-            private void Start()
+        private void Start()
             {
                 if (animator)
                 {
@@ -108,10 +108,10 @@ namespace Script.Triggers
                 }
             }
 
-            public void OnActivated()
+            /*public void OnActivated()
             {
                 canPlayAnimator = true;
-            }
+            }*/
 
             // Method to reset the animation state if needed
             public void ResetAnimation()
