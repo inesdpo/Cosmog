@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Playables;
 
 namespace Script.Triggers
@@ -17,6 +18,8 @@ namespace Script.Triggers
             private bool canPlayAnimator = false;
             private bool hasPlayedOnce = false;
             private float lastPlayTime = 0f;
+            [SerializeField] private InputActionProperty triggerAction;
+
 
             private void Start()
             {
@@ -24,6 +27,7 @@ namespace Script.Triggers
                 {
                     animatorTarget = animator.GetComponent<PlayableDirector>();
                 }
+                triggerAction.action.Enable();
             }
 
             protected override void OnEnterAction(Collider other)
@@ -47,7 +51,7 @@ namespace Script.Triggers
             {
                 if (!isPlayerInTrigger) return; // Only check input if player is in trigger
 
-                if (Input.GetKeyDown(KeyCode.E))
+                if (triggerAction.action.WasPressedThisFrame())
                 {
                     // Check if we can play the animation
                     if (CanPlayAnimation())
