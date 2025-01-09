@@ -7507,6 +7507,7 @@ GameObject:
   - component: {fileID: 1197562630}
   - component: {fileID: 1197562632}
   - component: {fileID: 1197562631}
+  - component: {fileID: 1197562633}
   m_Layer: 5
   m_Name: Final
   m_TagString: Untagged
@@ -7546,7 +7547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed75f0682f3de6843bb9d92f66a38e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggeringTag: Player
+  triggeringTag: MainCamera
   billboardCanvas: {fileID: 240370884}
   playerCamera: {fileID: 1111661000}
   rotateVertically: 0
@@ -7573,6 +7574,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.569758, y: 4.309148, z: 5.659188}
   m_Center: {x: -0.041915778, y: -1.6545606, z: -1.7115971}
+--- !u!114 &1197562633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197562629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 473ab64bd07b56b4a9170dd349dfe984, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggeringTag: MainCamera
+  billboardCanvas: {fileID: 240370884}
+  playerCamera: {fileID: 1111661000}
+  rotateVertically: 0
+  showDistance: 5
+  startHidden: 1
 --- !u!1 &1203406731
 GameObject:
   m_ObjectHideFlags: 0
