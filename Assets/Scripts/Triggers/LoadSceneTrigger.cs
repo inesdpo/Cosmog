@@ -81,8 +81,31 @@ namespace Script.Triggers
         {
             if (!other.gameObject.CompareTag("Player")) return;
 
-           
+            // Subscribe to the trigger action when player enters the trigger zone
+            triggerAction.action.performed += OnTriggerActionPerformed;
         }
+
+        protected override void OnTriggerExit(Collider other)
+        {
+            if (!other.gameObject.CompareTag("Player")) return;
+
+            // Unsubscribe from the trigger action when player exits the trigger zone
+            triggerAction.action.performed -= OnTriggerActionPerformed;
+        }
+
+        private void OnTriggerActionPerformed(InputAction.CallbackContext context)
+        {
+            // Check if badge is required and if player has it
+            if (requiresBadgeCheck && !CheckForBadge())
+            {
+                Debug.Log("Required badge not found!");
+                return;
+            }
+
+            // Load the scene when VR controller trigger is pressed
+            LoadScene(sceneToLoad, objectNameToDisableCollider);
+        }
+
 
         private bool CheckForBadge()
         {
