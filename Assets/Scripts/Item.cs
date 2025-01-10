@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using Unity.VRTemplate;
 using UnityEditor.Search;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class Item : MonoBehaviour
 {
@@ -16,16 +19,38 @@ public class Item : MonoBehaviour
 
     private ItemManager itemManager;
 
-    // Start is called before the first frame update
-    void Start()
+    private XRGrabInteractable grabInteractable;
+
+    void Awake()
     {
-        
+        grabInteractable = GetComponent<XRGrabInteractable>();
+
+        if (grabInteractable != null)
+        {
+            grabInteractable.selectEntered.AddListener(OnGrab);
+            grabInteractable.selectExited.AddListener(OnRelease);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
+        if (grabInteractable != null)
+        {
+            grabInteractable.selectEntered.RemoveListener(OnGrab);
+            grabInteractable.selectExited.RemoveListener(OnRelease);
+        }
+    }
 
+    private void OnGrab(SelectEnterEventArgs args)
+    {
+        Debug.Log("Object grabbed!");
+        Debug.Log("Click!");
+        itemManager.ItemClick(this.gameObject, this);
+    }
+    private void OnRelease(SelectExitEventArgs args)
+    {
+        Debug.Log("Object released!");
+        
     }
 
     public void SetItemManager(ItemManager newItemManager)
@@ -33,11 +58,11 @@ public class Item : MonoBehaviour
         itemManager = newItemManager;
     }
 
-    public void OnMouseUp()
+    /*public void OnMouseUp()
     {
         Debug.Log("Click!");
         itemManager.ItemClick(this.gameObject, this);
-    }
+    }*/
 
 
 }
