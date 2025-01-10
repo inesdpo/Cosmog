@@ -23,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Floors/Floor2.unity
     guid: fd42cbf1d13628b47bd712ff53278918
+  - enabled: 1
+    path: Assets/Scenes/Floors/Floor1.unity
+    guid: 3775eda44afce31479ff10d011e4c7c0
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260, type: 2}
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: dc5a169419fa04987b057f65238cf3ba, type: 2}
