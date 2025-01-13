@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class offset : MonoBehaviour
 {
-    public float desiredHeight = 1.8f; // Desired height in meters
+    private float desiredHeight = 0.8f; // Desired height in meters
 
     private XROrigin xrOrigin;
 

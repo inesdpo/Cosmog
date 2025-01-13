@@ -7631,7 +7631,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggeringTag: MainCamera
   billboardCanvas: {fileID: 70512953}
-  playerCamera: {fileID: 1917120887}
+  playerCamera: {fileID: 777714748}
   rotateVertically: 0
   showDistance: 3
   startHidden: 1
@@ -19194,7 +19194,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1178791450436251564, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_CameraYOffset
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1178791450436251564, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_RequestedTrackingOriginMode
@@ -19254,7 +19254,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6232745470614056090, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_Height
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6520291404937146767, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_ActionAssets.Array.size
@@ -45668,7 +45668,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b34d6c2fabfb074fb5736e513c87b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desiredHeight: 1
 --- !u!1 &1917350089
 GameObject:
   m_ObjectHideFlags: 0
@@ -60783,6 +60782,10 @@ PrefabInstance:
     - target: {fileID: 7273177693947538748, guid: b8475286a7b47ca469799117aa96aa65, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7765368779568970871, guid: b8475286a7b47ca469799117aa96aa65, type: 3}
+      propertyPath: triggeringTag
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7856656783084482049, guid: b8475286a7b47ca469799117aa96aa65, type: 3}
       propertyPath: m_Name
