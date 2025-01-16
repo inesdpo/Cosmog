@@ -67,7 +67,7 @@ namespace Scripts.Triggers
             }
         }
 
-        private void OnTriggerEnter(Collider other)
+        protected override void OnTriggerEnter(Collider other)
         {
             // Check if it's the player entering the trigger
             if (other.CompareTag("Player"))
@@ -77,7 +77,7 @@ namespace Scripts.Triggers
             }
         }
 
-        private void OnTriggerExit(Collider other)
+        protected override void OnTriggerExit(Collider other)
         {
             // Check if it's the player exiting the trigger
             if (other.CompareTag("Player"))
